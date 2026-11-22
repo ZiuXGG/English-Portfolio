@@ -1,0 +1,2749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Youssef Sadik Cherabi — English Learning Portfolio, 2n Batxillerat (2026–27).">
+<title>Youssef Sadik Cherabi — English Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   1. DESIGN TOKENS (LIGHT & DARK PALETTE)
+   ========================================================================== */
+:root {
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --bg: #faf9f6;
+  --sidebar-bg: #f4f2ec;
+  --surface: #ffffff;
+  --surface-alt: #f3f1ec;
+  --border: #e4e1d8;
+  --border-strong: #c8c3b6;
+
+  --text: #141416;
+  --text-soft: #44444b;
+  --text-muted: #767680;
+
+  --accent: #1d3b58;
+  --accent-bg: rgba(29, 59, 88, 0.07);
+  --sheen: rgba(29, 59, 88, 0.045);
+
+  --green: #1e5c40;
+  --green-bg: rgba(30, 92, 64, 0.09);
+  --green-border: rgba(30, 92, 64, 0.3);
+
+  --warn-bg: #fbf7ed;
+  --warn-text: #7a4e16;
+  --warn-border: #e4d1a7;
+
+  --shadow: 0 2px 10px rgba(20, 20, 22, 0.035);
+  --shadow-hover: 0 12px 30px -10px rgba(20, 20, 22, 0.08);
+  --radius: 10px;
+  --sidebar-w: 16.25rem;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0e1013;
+  --sidebar-bg: #13161b;
+  --surface: #161920;
+  --surface-alt: #1d212a;
+  --border: #262a34;
+  --border-strong: #3c4250;
+
+  --text: #f0f0ee;
+  --text-soft: #c0c2c9;
+  --text-muted: #848894;
+
+  --accent: #8ab4d8;
+  --accent-bg: rgba(138, 180, 216, 0.11);
+  --sheen: rgba(138, 180, 216, 0.065);
+
+  --green: #6bc499;
+  --green-bg: rgba(107, 196, 153, 0.12);
+  --green-border: rgba(107, 196, 153, 0.32);
+
+  --warn-bg: rgba(212, 163, 115, 0.08);
+  --warn-text: #e0b989;
+  --warn-border: rgba(212, 163, 115, 0.25);
+
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0 14px 34px -10px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+/* Unit accent colors (Term 1: Unit 1 & Unit 2) */
+.unit-block[data-u="1"], .u-dot[data-u="1"] { --u-color: #9e2a3b; --u-soft: rgba(158, 42, 59, 0.08); }
+.unit-block[data-u="2"], .u-dot[data-u="2"] { --u-color: #1f5c6e; --u-soft: rgba(31, 92, 110, 0.08); }
+
+:root[data-theme="dark"] .unit-block[data-u="1"], :root[data-theme="dark"] .u-dot[data-u="1"] {
+  --u-color: #e37b8a; --u-soft: rgba(227, 123, 138, 0.12);
+}
+:root[data-theme="dark"] .unit-block[data-u="2"], :root[data-theme="dark"] .u-dot[data-u="2"] {
+  --u-color: #6cb8cf; --u-soft: rgba(108, 184, 207, 0.12);
+}
+
+/* ==========================================================================
+   2. RESET & BASE TYPOGRAPHY
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-top: 0;
+}
+
+h3, h4, h5 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-top: 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0.75rem;
+  z-index: 120;
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+}
+.skip-link:focus {
+  left: 1rem;
+}
+
+/* ==========================================================================
+   2B. CUSTOM CURSOR WITH INERTIA (LERP) & MIX-BLEND-MODE
+   ========================================================================== */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active a,
+  body.custom-cursor-active button,
+  body.custom-cursor-active input,
+  body.custom-cursor-active [role="button"],
+  body.custom-cursor-active [data-cursor="hover"] {
+    cursor: none !important;
+  }
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition: opacity 0.25s ease, width 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.25s ease, border-color 0.25s ease;
+  will-change: transform;
+}
+
+body.custom-cursor-active .cursor-dot,
+body.custom-cursor-active .cursor-ring {
+  opacity: 1;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  margin-left: -4px;
+  margin-top: -4px;
+}
+
+.cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  background-color: transparent;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+
+.cursor-ring.is-hovering {
+  width: 68px;
+  height: 68px;
+  margin-left: -34px;
+  margin-top: -34px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-color: transparent;
+}
+
+.cursor-dot.is-hovering {
+  width: 0px;
+  height: 0px;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   3. LEFT SIDEBAR NAVIGATION (TWO-VIEW SWITCHER: PROFILE & TERM 1)
+   ========================================================================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  padding: 2rem 1.35rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 60;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sidebar-brand {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-brand:hover {
+  opacity: 1;
+}
+
+.brand-monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 6px;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.brand-name {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.22rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.brand-meta {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+.side-nav {
+  position: relative;
+  margin: 1.5rem 0 auto;
+  padding-left: 0.95rem;
+}
+
+.progress-rail {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-rail-fill {
+  width: 100%;
+  height: 0%;
+  background: var(--accent);
+  transition: height 0.12s ease-out;
+}
+
+.side-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.side-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.42rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.side-links a:hover {
+  color: var(--text);
+  background: var(--accent-bg);
+  opacity: 1;
+}
+
+.side-links a.active {
+  color: var(--text);
+  font-weight: 600;
+  background: var(--surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.side-links .nav-group-gap {
+  margin-top: 0.55rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--border);
+}
+
+.side-links .sub-item a {
+  font-size: 0.84rem;
+  padding-left: 1.15rem;
+}
+
+.u-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--u-color);
+  flex-shrink: 0;
+}
+
+.sidebar-foot {
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.sidebar-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+}
+
+.tool-pill {
+  height: 2.15rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-soft);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.tool-pill:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.kbd-hint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.kbd-hint kbd {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-soft);
+}
+
+/* Mobile Header */
+.mobile-header {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1.15rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 12, 15, 0.45);
+  z-index: 55;
+}
+.sidebar-backdrop.open {
+  display: block;
+}
+
+@media (max-width: 880px) {
+  .mobile-header {
+    display: flex;
+  }
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: 12px 0 32px rgba(0, 0, 0, 0.18);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .kbd-hint {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   4. MAIN LANDING STAGE, VIEWS & INTERACTIVE 3D TILT CARDS
+   ========================================================================== */
+.main-stage {
+  margin-left: var(--sidebar-w);
+  min-height: 100vh;
+}
+
+@media (max-width: 880px) {
+  .main-stage {
+    margin-left: 0;
+  }
+}
+
+.content-wrap {
+  max-width: 53rem;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+
+@media (max-width: 640px) {
+  .content-wrap {
+    padding: 0 1.15rem 4rem;
+  }
+}
+
+.portfolio-view[hidden] {
+  display: none !important;
+}
+
+.view-back-bar {
+  padding-top: 2.5rem;
+  margin-bottom: -1rem;
+}
+
+.back-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.38rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-soft);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.back-pill-btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+  opacity: 1;
+}
+
+.tilt-card {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.25s ease;
+}
+
+.tilt-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    520px circle at var(--mx, 50%) var(--my, 50%),
+    var(--sheen),
+    transparent 65%
+  );
+  opacity: var(--sheen-op, 0);
+  transition: opacity 0.3s ease;
+}
+
+.tilt-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border-strong);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   5. VIEW 1: PROFILE (OVERVIEW + WHO AM I + HOW I STUDY)
+   ========================================================================== */
+.hero-section {
+  padding: 4.5rem 0 3.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding: 2.5rem 0;
+  }
+}
+
+.hero-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem 2.5rem 2.35rem;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 640px) {
+  .hero-card {
+    padding: 1.65rem 1.35rem;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.hero-card h1 {
+  font-size: clamp(2.25rem, 4.8vw, 3.35rem);
+  line-height: 1.08;
+  margin-bottom: 1rem;
+  max-width: 17ch;
+}
+
+.hero-card h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-lead {
+  font-size: 1.04rem;
+  color: var(--text-soft);
+  max-width: 54ch;
+  margin: 0 0 1.65rem;
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  margin-bottom: 1.75rem;
+}
+
+.meta-row strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-magnetic {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1.3rem;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.15s ease;
+}
+.btn-magnetic:hover {
+  color: var(--bg);
+  opacity: 0.9;
+}
+
+.btn-subtle {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.62rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 0.15s ease;
+}
+.btn-subtle:hover {
+  border-color: var(--border-strong);
+  opacity: 1;
+}
+
+/* About & Method */
+.landing-section {
+  padding: 3.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.landing-section:last-of-type {
+  border-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .landing-section {
+    padding: 2.75rem 0;
+  }
+}
+
+.sec-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.sec-heading {
+  font-size: clamp(1.7rem, 3.2vw, 2.2rem);
+  margin-bottom: 1.15rem;
+}
+
+.pill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.35rem;
+}
+
+.pill-tag {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  background: var(--surface-alt);
+  padding: 0.26rem 0.7rem;
+  border-radius: 999px;
+}
+
+.prose-copy p {
+  color: var(--text-soft);
+  max-width: 64ch;
+  margin: 0 0 1.05rem;
+}
+.prose-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.35rem;
+}
+
+@media (max-width: 760px) {
+  .method-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.method-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.35rem 1.45rem;
+  box-shadow: var(--shadow);
+}
+
+.method-num {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+
+.method-card h3 {
+  font-size: 0.98rem;
+  margin-bottom: 0.4rem;
+}
+
+.method-card p {
+  font-size: 0.89rem;
+  color: var(--text-soft);
+  margin: 0;
+}
+
+/* ==========================================================================
+   6. VIEW 2: TERM 1 WORKSPACE & COLLAPSIBLE SUBTOPIC CARDS
+   ========================================================================== */
+.term-top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  margin: 1.75rem 0 2rem;
+}
+
+.search-box {
+  position: relative;
+  flex: 1 1 18rem;
+  max-width: 27rem;
+}
+
+.search-box svg {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.95rem;
+  height: 0.95rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  height: 2.45rem;
+  padding: 0 2.2rem 0 2.35rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.search-clear {
+  position: absolute;
+  right: 0.55rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  display: none;
+  padding: 0.2rem 0.4rem;
+}
+.search-clear.visible {
+  display: block;
+}
+
+.vocab-meter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.84rem;
+  color: var(--text-soft);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+}
+
+.meter-bar {
+  width: 3.5rem;
+  height: 5px;
+  background: var(--surface-alt);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--green);
+  transition: width 0.3s ease;
+}
+
+.empty-state {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  background: var(--surface);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+}
+.empty-state[hidden] {
+  display: none;
+}
+
+.units-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.unit-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.unit-block[hidden] {
+  display: none;
+}
+
+.unit-header {
+  padding: 1.75rem 2rem 1.45rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .unit-header {
+    padding: 1.35rem 1.2rem 1.15rem;
+  }
+}
+
+.unit-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--u-color);
+  margin-bottom: 0.4rem;
+}
+
+.unit-header h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  font-weight: 500;
+  margin: 0 0 0.3rem;
+}
+
+.unit-desc {
+  font-size: 0.93rem;
+  color: var(--text-soft);
+  margin: 0;
+  max-width: 56ch;
+}
+
+.unit-expand-btn {
+  padding: 0.38rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-soft);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.unit-expand-btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+/* Accordion List inside each Unit */
+.topic-list {
+  padding: 1.35rem 2rem 1.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .topic-list {
+    padding: 1.15rem 1.2rem 1.4rem;
+  }
+}
+
+.topic-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  transition: border-color 0.2s ease, background 0.2s ease;
+  overflow: hidden;
+}
+.topic-item[hidden] {
+  display: none;
+}
+
+.topic-item:hover {
+  border-color: var(--border-strong);
+}
+
+.topic-item.is-open {
+  background: var(--surface);
+  border-color: var(--border-strong);
+}
+
+.topic-trigger {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.15rem 1.35rem;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+}
+
+@media (max-width: 640px) {
+  .topic-trigger {
+    padding: 1rem 1.1rem;
+    gap: 0.85rem;
+  }
+}
+
+.topic-trigger-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.topic-head-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.topic-num {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--u-color);
+}
+
+.topic-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.topic-preview {
+  font-size: 0.91rem;
+  line-height: 1.55;
+  color: var(--text-soft);
+  max-width: 64ch;
+}
+
+.topic-state-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.topic-item:hover .topic-state-pill {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.topic-item.is-open .topic-state-pill {
+  background: var(--u-soft);
+  border-color: transparent;
+  color: var(--u-color);
+}
+
+.topic-chevron {
+  width: 0.85rem;
+  height: 0.85rem;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.topic-item.is-open .topic-chevron {
+  transform: rotate(180deg);
+}
+
+.topic-drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.topic-item.is-open .topic-drawer {
+  grid-template-rows: 1fr;
+}
+
+.topic-drawer-clip {
+  overflow: hidden;
+}
+
+.topic-detail-body {
+  padding: 1.25rem 1.35rem 1.5rem;
+  border-top: 1px solid var(--border);
+  opacity: 0.35;
+  transition: opacity 0.25s ease;
+}
+
+.topic-item.is-open .topic-detail-body {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .topic-detail-body {
+    padding: 1.1rem 1.1rem 1.3rem;
+  }
+}
+
+/* ==========================================================================
+   7. DETAILED CONTENT BLOCKS (GRAMMAR, VOCABULARY, TEXT TYPES, ACTIVITIES)
+   ========================================================================== */
+.note-callout {
+  margin: 0 0 1.1rem;
+  padding: 0.85rem 1.1rem;
+  border-left: 3px solid var(--u-color);
+  background: var(--u-soft);
+  color: var(--text);
+  font-size: 0.94rem;
+  border-radius: 0 6px 6px 0;
+}
+
+.mistake-callout {
+  margin: 1rem 0;
+  padding: 0.85rem 1.05rem;
+  border-left: 3px solid var(--warn-border);
+  background: var(--warn-bg);
+  color: var(--warn-text);
+  font-size: 0.89rem;
+  border-radius: 0 6px 6px 0;
+}
+
+.extra-box {
+  margin: 1.25rem 0;
+  padding: 1rem 1.15rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.extra-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.16rem 0.5rem;
+  border-radius: 4px;
+  background: var(--u-soft);
+  color: var(--u-color);
+  font-weight: 500;
+  margin-bottom: 0.45rem;
+}
+
+.extra-box h5 {
+  font-size: 0.93rem;
+  margin: 0 0 0.45rem;
+}
+
+.extra-box p, .extra-box ul {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  margin: 0;
+}
+
+.extra-box ul {
+  padding-left: 1.15rem;
+  margin-top: 0.4rem;
+}
+
+.extra-box li {
+  margin-bottom: 0.35rem;
+}
+
+.detail-subhead {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 1.35rem 0 0.55rem;
+}
+.detail-subhead:first-child {
+  margin-top: 0;
+}
+
+.formula-box {
+  margin: 0.65rem 0;
+  padding: 0.8rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  color: var(--text);
+  overflow-x: auto;
+}
+
+.formula-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  margin: 0.85rem 0 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.87rem;
+  text-align: left;
+}
+
+.data-table th {
+  background: var(--surface-alt);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.79rem;
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-table td {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-soft);
+  vertical-align: top;
+}
+
+.data-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.data-table td em {
+  color: var(--text);
+  font-style: italic;
+}
+
+.data-table td code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--u-color);
+}
+
+.two-col-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15.5rem), 1fr));
+  gap: 0.85rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.mini-rule-card {
+  padding: 0.9rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.87rem;
+  color: var(--text-soft);
+}
+
+.mini-rule-card strong.card-cap {
+  display: block;
+  color: var(--text);
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+}
+
+.mini-rule-card ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.mini-rule-card li {
+  margin-bottom: 0.3rem;
+}
+
+.text-p {
+  color: var(--text-soft);
+  max-width: 64ch;
+  margin: 0 0 0.85rem;
+}
+
+.text-ul {
+  padding-left: 1.2rem;
+  margin: 0.5rem 0 1rem;
+  color: var(--text-soft);
+  max-width: 64ch;
+}
+
+.text-ul li {
+  margin-bottom: 0.45rem;
+}
+
+.personal-slot {
+  margin-top: 1rem;
+  padding: 0.95rem 1.1rem;
+  border: 1px dashed var(--border-strong);
+  border-radius: 6px;
+  background: var(--bg);
+  font-size: 0.87rem;
+  color: var(--text-muted);
+}
+
+/* Vocabulary */
+.vocab-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.study-btn {
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-soft);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.study-btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.study-btn[aria-pressed="true"] {
+  background: var(--u-color);
+  border-color: var(--u-color);
+  color: var(--surface);
+}
+
+.vocab-group-block {
+  margin-top: 1.15rem;
+}
+
+.vocab-group-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 0.35rem;
+}
+
+.vocab-group-note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0 0 0.55rem;
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.48rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.word-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.36rem 0.78rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.word-chip:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+
+.word-check {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-strong);
+  display: grid;
+  place-items: center;
+  font-size: 0.6rem;
+  color: transparent;
+  flex-shrink: 0;
+}
+
+.word-chip.is-learned {
+  background: var(--green-bg);
+  border-color: var(--green-border);
+}
+
+.word-chip.is-learned .word-check {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--surface);
+}
+
+.word-en {
+  font-weight: 600;
+}
+
+.word-ca {
+  font-size: 0.79rem;
+  color: var(--text-muted);
+  transition: filter 0.18s ease, opacity 0.18s ease;
+}
+
+.vocab-wrap.hide-meanings .word-chip .word-ca {
+  filter: blur(5px);
+  opacity: 0.3;
+}
+
+.vocab-wrap.hide-meanings .word-chip:hover .word-ca,
+.vocab-wrap.hide-meanings .word-chip:focus-visible .word-ca,
+.vocab-wrap.hide-meanings .word-chip.is-revealed .word-ca {
+  filter: none;
+  opacity: 1;
+}
+
+/* APA References */
+.apa-refs {
+  list-style: none;
+  padding: 0;
+  margin: 0.45rem 0 0;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.apa-refs li {
+  padding-left: 1.5rem;
+  text-indent: -1.5rem;
+  margin-bottom: 0.4rem;
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================================================
+   8. FOOTER & PRINT / PDF EXPORT
+   ========================================================================== */
+.page-footer {
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media print {
+  @page { margin: 1.5cm; }
+  :root, :root[data-theme="dark"] {
+    --bg: #ffffff !important;
+    --surface: #ffffff !important;
+    --surface-alt: #f5f5f5 !important;
+    --text: #000000 !important;
+    --text-soft: #222222 !important;
+    --text-muted: #555555 !important;
+    --border: #cccccc !important;
+    color-scheme: light !important;
+  }
+  .cursor-dot, .cursor-ring, .sidebar, .mobile-header, .sidebar-backdrop, .view-back-bar, .term-top-bar, .unit-expand-btn, .topic-state-pill, .vocab-toolbar, .cta-group, .page-footer {
+    display: none !important;
+  }
+  .main-stage { margin-left: 0 !important; }
+  .content-wrap { max-width: 100% !important; padding: 0 !important; }
+  .unit-block, .hero-card, .method-card, .topic-item { box-shadow: none !important; transform: none !important; break-inside: avoid-page; }
+  .topic-drawer { grid-template-rows: 1fr !important; }
+  .topic-drawer-clip { overflow: visible !important; }
+  .topic-detail-body { opacity: 1 !important; }
+  .vocab-wrap.hide-meanings .word-ca { filter: none !important; opacity: 1 !important; }
+}
+</style>
+</head>
+<body class="custom-cursor-active">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Custom Cursor Elements (Inertia LERP + mix-blend-mode: difference) -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<!-- Mobile Header (only shown on screens <= 880px) -->
+<div class="mobile-header">
+  <a class="mobile-title" href="#profile" data-view-link="profile">Youssef Sadik Cherabi</a>
+  <button class="tool-pill" id="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="sidebar" style="padding:0 0.85rem">Menu</button>
+</div>
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+<!-- Left Sidebar Navigation (Divided into Profile View & Term 1 View) -->
+<aside class="sidebar" id="sidebar" aria-label="Portfolio navigation">
+  <div>
+    <a class="sidebar-brand" href="#profile" data-view-link="profile">
+      <span class="brand-monogram" aria-hidden="true">YSC</span>
+      <span class="brand-name">Youssef Sadik Cherabi</span>
+      <span class="brand-meta">2n Batxillerat · 2026–27</span>
+    </a>
+
+    <nav class="side-nav" aria-label="Page sections">
+      <div class="progress-rail" aria-hidden="true">
+        <div class="progress-rail-fill" id="rail-fill"></div>
+      </div>
+      <ul class="side-links">
+        <li><a href="#profile" data-view-link="profile" data-spy="profile" class="active">Profile</a></li>
+        <li class="sub-item"><a href="#overview" data-view-link="profile" data-target="overview" data-spy="overview">Overview</a></li>
+        <li class="sub-item"><a href="#about" data-view-link="profile" data-target="about" data-spy="about">Who am I?</a></li>
+        <li class="sub-item"><a href="#method" data-view-link="profile" data-target="method" data-spy="method">How I study</a></li>
+
+        <li class="nav-group-gap"><a href="#term-1" data-view-link="term1" data-spy="term-1">Term 1</a></li>
+        <li class="sub-item"><a href="#unit-1" data-view-link="term1" data-target="unit-1" data-spy="unit-1"><span class="u-dot" data-u="1"></span>Unit 01 · Hit it off</a></li>
+        <li class="sub-item"><a href="#unit-2" data-view-link="term1" data-target="unit-2" data-spy="unit-2"><span class="u-dot" data-u="2"></span>Unit 02 · In good time</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="sidebar-foot">
+    <div class="sidebar-btns">
+      <button class="tool-pill" id="theme-btn" type="button" aria-pressed="false">Dark</button>
+      <button class="tool-pill" id="print-btn" type="button">Export PDF</button>
+    </div>
+    <div class="kbd-hint">
+      <span>Quick search</span>
+      <kbd>/</kbd>
+    </div>
+  </div>
+</aside>
+
+<!-- Main Landing Page Content -->
+<div class="main-stage" id="main">
+  <div class="content-wrap">
+
+    <!-- ==================================================================
+         VIEW 1: PROFILE ONLY (OVERVIEW + WHO AM I? + HOW I STUDY)
+         ================================================================== -->
+    <div class="portfolio-view" id="view-profile">
+      <!-- 1. HERO / OVERVIEW -->
+      <section class="hero-section" id="overview">
+        <div class="hero-card tilt-card reveal" data-tilt="2">
+          <div class="eyebrow">English Language · Academic Year 2026–27</div>
+          <h1>English <em>Learning Portfolio</em></h1>
+          <p class="hero-lead">
+            A structured record of my progress during Term 1—bringing together key grammar rules, Catalan-translated vocabulary sets, writing models, and self-assessment tools.
+          </p>
+
+          <div class="meta-row">
+            <span>Student: <strong>Youssef Sadik Cherabi</strong></span>
+            <span>Course: <strong>2n Batxillerat</strong></span>
+            <span>Location: <strong>Mataró</strong></span>
+          </div>
+
+          <div class="cta-group">
+            <a class="btn-magnetic" id="magnetic-cta" href="#term-1" data-view-link="term1">Explore Term 1 →</a>
+            <a class="btn-subtle" href="#about" data-view-link="profile" data-target="about">About me</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. ABOUT ME -->
+      <section class="landing-section reveal" id="about">
+        <div class="sec-kicker">Profile</div>
+        <h2 class="sec-heading">Who am I?</h2>
+
+        <div class="pill-tags">
+          <span class="pill-tag">Engineering & Software</span>
+          <span class="pill-tag">TdR: Deepfake Audio ML</span>
+          <span class="pill-tag">K1 Kickboxing & Running</span>
+          <span class="pill-tag">Sci-Fi & Psychological Thrillers</span>
+        </div>
+
+        <div class="prose-copy">
+            <p>I there, my name is Youssef, and in this portfolio I’d like to give you a look into who I am, what drives me and everything I'd learned this year.</p>
+          <p>Academically, I have always been drawn to the intersection of engineering, software development, and the exact sciences, driven by a curiosity to break down complex systems and understand how they truly work. For me, programming is more than just writing code; it is a creative tool for solving real-world problems through logic—an approach I applied in my research project (TdR) on machine learning and audio signal processing, where I built models to detect deepfake audio.</p>
+          <p>That same appreciation for strategy and intricate design carries into my downtime, whether I am sharpening my split-second decision-making and tactical coordination through competitive gaming or exploring science fiction and psychological thrillers rich in complex themes and narrative structures.</p>
+          <p>Beyond technology, physical training is a fundamental pillar of my daily routine: K1 kickboxing and running demand deep commitment and resilience, teaching me that true progress comes from consistency and adaptability—discipline-building habits that directly translate into my academic life and keep me focused when tackling difficult challenges.</p>
+        </div>
+      </section>
+
+      <!-- 3. STUDY METHODOLOGY -->
+      <section class="landing-section reveal" id="method">
+        <div class="sec-kicker">Approach</div>
+        <h2 class="sec-heading">How I study</h2>
+
+        <div class="method-grid">
+          <article class="method-card tilt-card" data-tilt="4">
+            <div class="method-num">01</div>
+            <h3>Digital Organization</h3>
+            <p>I use a <a href="[URL_DE_TU_AGENDA_DIGITAL]" target="_blank" rel="noopener">digital planner</a> as my central hub to keep track of deadlines, homework, and exams clearly.</p>
+          </article>
+
+          <article class="method-card tilt-card" data-tilt="4">
+            <div class="method-num">02</div>
+            <h3>Reference & Video Guides</h3>
+            <p>Outside class, I reinforce grammar rules with structured explanations from <a href="https://learnenglish.britishcouncil.org/grammar" target="_blank" rel="noopener">British Council LearnEnglish</a> and <a href="https://dictionary.cambridge.org/grammar/british-grammar/" target="_blank" rel="noopener">Cambridge Grammar</a>.</p>
+          </article>
+
+          <article class="method-card tilt-card" data-tilt="4">
+            <div class="method-num">03</div>
+            <h3>Consistent Practice</h3>
+            <p>Regular written drills and structured essay practice in class have been the most reliable way to build fluency under exam conditions.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================================================================
+         VIEW 2: TERM 1 ONLY (SEARCH + UNIT 01 + UNIT 02)
+         ================================================================== -->
+    <div class="portfolio-view" id="view-term1" hidden>
+      <div class="view-back-bar">
+        <a class="back-pill-btn" href="#profile" data-view-link="profile">← Back to Profile</a>
+      </div>
+
+      <section class="landing-section" id="term-1">
+        <div class="reveal">
+          <div class="sec-kicker">Term 01 · Autumn</div>
+          <h2 class="sec-heading">Term 1 — Core Structures & Expression</h2>
+          <p class="text-p">Open any section below to review its detailed grammar guide, Catalan-translated vocabulary, writing conventions, and extra study frameworks.</p>
+        </div>
+
+        <div class="term-top-bar reveal" role="region" aria-label="Search Term 1">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input class="search-input" id="global-search" type="search" placeholder="Search English rules, words, or Catalan meanings (/)..." aria-label="Search Term 1">
+            <button class="search-clear" id="search-clear" type="button" aria-label="Clear search">×</button>
+          </div>
+
+          <div class="vocab-meter">
+            <span>Vocabulary learned: <strong id="vocab-total-label">0 / 0</strong></span>
+            <div class="meter-bar">
+              <div class="meter-fill" id="vocab-meter-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="empty-state" id="empty-search" hidden>
+          <strong>No matching results in Term 1</strong>
+          <p style="margin:0.35rem 0 0;font-size:0.9rem">Try another keyword in English or Catalan such as <em>reported</em>, <em>gerund</em>, <em>desigualtat</em>, or <em>narrative</em>.</p>
+        </div>
+
+        <!-- Units 1 & 2 mounted dynamically -->
+        <div class="units-stack" id="units-container"></div>
+      </section>
+    </div>
+
+    <footer class="page-footer">
+      <span><strong>Youssef Sadik Cherabi</strong> · English Portfolio · 2n Batxillerat (2026–27)</span>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+/* ==========================================================================
+   1. TERM 1 DATA (ORIGINAL EXAMPLES · CATALAN TRANSLATIONS · EXTRA BLOCKS)
+   ========================================================================== */
+const TERM1_UNITS = [
+  {
+    u: 1,
+    title: 'Unit 1 — Hit it off',
+    subtitle: 'Learning situation: How can we expand our network of friends?',
+    grammar: {
+      preview: 'Reported speech (estil indirecte): relaying statements, questions, and commands by shifting verb tenses, pronouns, and time/place markers.',
+      description: '<strong>Reported speech</strong> lets us convey what someone else communicated without quoting their exact words. We introduce the reported clause with verbs such as <em>said</em>, <em>told</em>, or <em>asked</em>, adjusting pronouns, verb tenses, and time or place references to match the new perspective (Cambridge University Press, 2026).',
+      uses: [
+        '<strong>Relaying statements, questions, and requests:</strong> <em>Marc said he was joining the robotics club next month.</em>',
+        '<strong>Keeping the present tense:</strong> When the reported fact or routine is still true at the moment of speaking, shifting the verb back is optional (<em>Aina said she speaks three languages fluently</em>).',
+        '<strong>Choosing between <em>said</em> and <em>told</em>:</strong> Always use <em>told</em> when you explicitly name the person addressed (<em>The coach told us we had improved our stamina</em>).'
+      ],
+      formulas: [
+        { name: 'Reporting Statements', rule: 'Subject + said / told (+ object) + (that) + clause shifted one tense back' },
+        { name: 'Reporting Questions (Yes/No & Wh-)', rule: 'Subject + asked + if / whether / wh-word + subject + verb (affirmative order)' }
+      ],
+      tables: [
+        {
+          caption: 'Verb Tense Backshift (Direct → Reported)',
+          headers: ['Direct Speech', 'Reported Speech', 'Original Transformation Example'],
+          rows: [
+            ['Present Simple', 'Past Simple', '<em>"I train every evening after class."</em> → He said he <strong>trained</strong> every evening after class.'],
+            ['Present Continuous', 'Past Continuous', '<em>"We are debugging the audio script."</em> → They said they <strong>were debugging</strong> the audio script.'],
+            ['Present Perfect', 'Past Perfect', '<em>"I have already submitted my draft."</em> → Clara said she <strong>had already submitted</strong> her draft.'],
+            ['Past Simple', 'Past Perfect', '<em>"I met her at the summer camp."</em> → Pau said he <strong>had met</strong> her at the summer camp.'],
+            ['Future (will)', 'Conditional (would)', '<em>"I will send you the notes tonight."</em> → She promised she <strong>would send</strong> me the notes that night.'],
+            ['Past Perfect', 'Past Perfect (no change)', '<em>"The match had already started."</em> → He explained that the match <strong>had already started</strong>.']
+          ]
+        },
+        {
+          caption: 'Reporting Questions (Statement Word Order)',
+          headers: ['Question Type', 'Direct Question', 'Reported Question'],
+          rows: [
+            ['Yes / No Question (uses <em>if / whether</em>)', '<em>"Did you pass the driving test?"</em>', 'Laia asked <strong>if I had passed</strong> the driving test.'],
+            ['Wh- Question (keeps <em>wh-</em> word)', '<em>"What time does the library close?"</em>', 'He asked <strong>what time the library closed</strong>.']
+          ]
+        },
+        {
+          caption: 'Time & Place Reference Shifts (Anglès → Català)',
+          headers: ['Direct Speech', 'Reported Speech', 'Equivalència en català'],
+          rows: [
+            ['<code>today</code>', '<code>that day</code>', 'avui → aquell dia'],
+            ['<code>tomorrow</code>', '<code>the next / following day</code>', 'demà → l’endemà / el dia següent'],
+            ['<code>yesterday</code>', '<code>the day before</code>', 'ahir → el dia anterior'],
+            ['<code>next week</code>', '<code>the following week</code>', 'la setmana que ve → la setmana següent'],
+            ['<code>last week</code>', '<code>the previous week</code>', 'la setmana passada → la setmana anterior'],
+            ['<code>now</code>', '<code>at the time / then</code>', 'ara → en aquell moment'],
+            ['<code>here</code>', '<code>there</code>', 'aquí → allí / allà']
+          ]
+        },
+        {
+          caption: 'Bilingual Practice Examples (English ↔ Català)',
+          headers: ['English', 'Català'],
+          rows: [
+            ['<em>My teammate said he was recovering from an ankle sprain.</em>', 'El meu company d’equip va dir que s’estava recuperant d’un esquinç de turmell.'],
+            ['<em>I told my parents I wouldn’t be home for dinner.</em>', 'Vaig dir als meus pares que no seria a casa per sopar.'],
+            ['<em>The teacher asked whether we had understood the assignment.</em>', 'El professor va preguntar si havíem entès la tasca.'],
+            ['<em>She mentioned that she had been practising her presentation all weekend.</em>', 'Va comentar que havia estat practicant la seva presentació tot el cap de setmana.'],
+            ['<em>He denied having shared the private message with anyone.</em>', 'Va negar haver compartit el missatge privat amb ningú.'],
+            ['<em>My mentor encouraged me to apply for the engineering scholarship.</em>', 'El meu mentor em va animar a sol·licitar la beca d’enginyeria.']
+          ]
+        }
+      ],
+      extraBlocks: [
+        {
+          badge: 'Extra · Advanced Uses',
+          title: 'Reporting Verbs & Their Specific Syntactic Patterns',
+          body: '<p>To sound more precise than repeating <em>said</em> or <em>told</em>, advanced writers choose reporting verbs that convey attitude and follow specific structures:</p><ul><li><strong>Verb + (that) + clause:</strong> <em>admit, claim, complain, explain, insist</em> — <em>She insisted that the data was reliable.</em></li><li><strong>Verb + object + to-infinitive:</strong> <em>advise, encourage, remind, warn, persuade</em> — <em>He warned us not to underestimate the exam.</em></li><li><strong>Verb + -ing (or preposition + -ing):</strong> <em>apologize for, deny, recommend, suggest</em> — <em>Núria apologized for arriving late to rehearsal.</em></li></ul>'
+        }
+      ],
+      commonMistake: '<strong>Common pitfalls & PAU exam traps:</strong> Never keep question inversion or auxiliary <em>do/did</em> in reported questions (write <em>He asked where I lived</em>, never <em>He asked where did I live</em>). Also remember modal shifts: <em>can → could</em>, <em>may → might</em>, and <em>must (obligation) → had to</em>.',
+      refs: [
+        'Cambridge University Press. (2026). <em>Reported speech: Indirect speech</em>. Cambridge Dictionary Grammar. https://dictionary.cambridge.org/grammar/british-grammar/reported-speech',
+        'Swan, M. (2016). <em>Practical English Usage</em> (4th ed.). Oxford University Press.'
+      ]
+    },
+    vocabulary: {
+      preview: 'Core lexical sets on relationships, reflexive verbs, dependent prepositions, human rights issues, 7 idioms, plus PAU word-formation upgrades—all translated into Catalan.',
+      groups: [
+        {
+          group: 'Relationships',
+          items: [
+            { word: 'back up', meaning: 'recolzar / donar suport' },
+            { word: 'break up with', meaning: 'trencar amb algú' },
+            { word: 'fall out with', meaning: 'barallar-se / enfadar-se amb' },
+            { word: 'get back to', meaning: 'tornar a contactar amb' },
+            { word: 'get in touch with', meaning: 'posar-se en contacte amb' },
+            { word: 'get on well with', meaning: 'avenir-se / portar-se bé amb' },
+            { word: 'gossip about', meaning: 'xafardejar sobre' },
+            { word: 'let somebody down', meaning: 'decebre algú' },
+            { word: 'look out for', meaning: 'vetllar per / estar pendent de' },
+            { word: 'make up with', meaning: 'fer les paus / reconciliar-se amb' },
+            { word: 'split up with', meaning: 'separar-se de' },
+            { word: 'upset (adj)', meaning: 'disgustat / amoïnat' }
+          ]
+        },
+        {
+          group: 'Verbs with Reflexive Pronouns',
+          items: [
+            { word: 'ask yourself', meaning: 'preguntar-se a un mateix' },
+            { word: 'believe in yourself', meaning: 'creure en un mateix' },
+            { word: 'consider yourself', meaning: 'considerar-se a un mateix' },
+            { word: 'enjoy yourself', meaning: 'divertir-se / passar-s’ho bé' },
+            { word: 'feel good / bad about yourself', meaning: 'sentir-se bé / malament amb un mateix' },
+            { word: 'isolate yourself', meaning: 'aïllar-se' },
+            { word: '(get to) know yourself', meaning: 'arribar a conèixer-se' },
+            { word: 'promise yourself', meaning: 'prometre’s a un mateix' },
+            { word: 'protect yourself', meaning: 'protegir-se' },
+            { word: 'stop yourself', meaning: 'contenir-se / frenar-se' }
+          ]
+        },
+        {
+          group: 'Dependent Prepositions',
+          items: [
+            { word: 'aware of', meaning: 'conscient de' },
+            { word: 'bias towards / against', meaning: 'biaix cap a / en contra de' },
+            { word: 'different from', meaning: 'diferent de' },
+            { word: 'fearful of', meaning: 'temorós de' },
+            { word: 'impact on', meaning: 'impacte en / sobre' },
+            { word: 'increase / decrease in', meaning: 'augment / disminució en' },
+            { word: 'prevent from', meaning: 'impedir que' },
+            { word: 'puzzled by', meaning: 'desconcertat per' },
+            { word: 'similar to', meaning: 'similar a' }
+          ]
+        },
+        {
+          group: 'Human Rights Issues',
+          items: [
+            { word: 'bias', meaning: 'prejudici / biaix' },
+            { word: 'campaigner', meaning: 'activista / defensor' },
+            { word: 'foundation', meaning: 'fundació' },
+            { word: 'harmful', meaning: 'perjudicial / nociu' },
+            { word: 'inequality', meaning: 'desigualtat' },
+            { word: 'mentorship', meaning: 'mentoria / orientació' },
+            { word: 'stereotype', meaning: 'estereotipo' },
+            { word: 'struggle', meaning: 'lluita / dificultat' },
+            { word: 'violence', meaning: 'violència' }
+          ]
+        },
+        {
+          group: 'Idioms',
+          items: [
+            { word: 'Once in a blue moon', meaning: 'Very rarely (De tant en tant / Molt de tard en tard)' },
+            { word: 'Hold your horses', meaning: 'Wait and be patient (Frena / Tingues paciència)' },
+            { word: 'To turn a blind eye', meaning: 'Ignore something intentionally (Fer els ulls grossos)' },
+            { word: 'Every cloud has a silver lining', meaning: 'Something positive in a bad situation (No hi ha mal que per bé no vingui)' },
+            { word: 'Speak of the devil', meaning: 'When the person mentioned appears (Parlant del rei de Roma)' },
+            { word: 'A penny for your thoughts', meaning: 'What are you thinking about? (En què penses?)' },
+            { word: '(To be) barking up the wrong tree', meaning: 'Mistaken about the cause or approach (Anar errat / Equivocar-se de camí)' }
+          ]
+        }
+      ],
+      extraBlocks: [
+        {
+          badge: 'Extra · Word Formation & Collocations',
+          title: 'Key Derivatives & High-Frequency Collocations (Català)',
+          body: '<ul><li><strong>equal (adj) → inequality (n) → unequally (adv):</strong> <em>Social inequality</em> (desigualtat social) · <em>Bridge the gap</em> (reduir les diferències).</li><li><strong>harm (n/v) → harmful (adj) → harmless (adj):</strong> <em>Harmful stereotypes</em> (estereotips nocius).</li><li><strong>aware (adj) → awareness (n) → unaware (adj):</strong> <em>Raise awareness of</em> (sensibilitzar sobre).</li><li><strong>rely (v) → reliable (adj) → reliability (n):</strong> <em>A trustworthy and reliable ally</em> (un aliat fiable i de confiança).</li></ul>'
+        }
+      ]
+    },
+    textTypes: {
+      preview: 'Descriptive essay guide: 4-paragraph organization, sensory observation strategies, connectors, descriptive upgrades, and self-editing checklist.',
+      heading: 'Descriptive Essay',
+      intro: 'A <strong>descriptive essay</strong> aims to portray a person, place, or object with enough precision that the reader can picture it effortlessly. Planning ahead by listing sensory impressions and defining character traits ensures a balanced, vivid composition.',
+      bullets: [
+        '<strong>1. Introduction:</strong> Name the person, place, or object you are describing and explain why they are significant.',
+        '<strong>2. Physical Appearance:</strong> Detail distinctive visual traits, posture, clothing, or spatial features.',
+        '<strong>3. Personality / Core Qualities:</strong> Highlight behaviour and values (for a person), function (for an object), or atmosphere (for a place).',
+        '<strong>4. Conclusion:</strong> Close with a brief synthesis and your personal reflection.'
+      ],
+      extraText: '<strong>Writing strategies:</strong> Rely on structured <em>observation</em> (moving from an overall impression to fine details), selective <em>adjective choice</em> (avoiding vague words like <em>nice</em> or <em>good</em>), and deliberate <em>order</em> (from general to specific or spatial layout).',
+      connectorsTable: {
+        caption: 'Useful Linking Words & Connectors (avoid repetition)',
+        headers: ['Function', 'Connectors & Phrases', 'Equivalència en català'],
+        rows: [
+          ['Adding', '<code>and</code>, <code>also</code>, <code>moreover</code>, <code>in addition</code>, <code>besides</code>', 'i, també, a més a més, endemés'],
+          ['Contrasting', '<code>but</code>, <code>however</code>, <code>although</code>, <code>while</code>, <code>on the other hand</code>', 'però, tanmateix, encara que, mentre que, d’altra banda'],
+          ['Order', '<code>firstly</code>, <code>then</code>, <code>next</code>, <code>finally</code>', 'en primer lloc, després, tot seguit, finalment'],
+          ['Place', '<code>in front of</code>, <code>behind</code>, <code>next to</code>, <code>on the left</code>, <code>in the background</code>', 'davant de, darrere de, al costat de, a l’esquerra, al fons'],
+          ['Concluding', '<code>in conclusion</code>, <code>to sum up</code>, <code>overall</code>', 'en conclusió, en resum, en conjunt']
+        ]
+      },
+      extraBlocks: [
+        {
+          badge: 'Extra · Style & Self-Editing',
+          title: 'Descriptive Vocabulary Upgrades & Pre-Submission Checklist',
+          body: '<ul><li><strong>Upgrade basic adjectives:</strong> Replace <em>very determined</em> with <em>relentless / single-minded</em> (tenaç); replace <em>friendly</em> with <em>approachable / warm-hearted</em> (proper / afable); replace <em>calm</em> with <em>composed / level-headed</em> (serè / assenyat).</li><li><strong>Show, don’t just tell:</strong> Instead of writing <em>"He is disciplined"</em>, illustrate the habit (<em>"He arrives at the gym an hour before dawn regardless of the weather"</em>).</li><li><strong>Checklist:</strong> 4 distinct paragraphs · Varied connectors · No contractions in formal register · Word count within target range.</li></ul>'
+        }
+      ],
+      modelSummary: '<strong>Reference Model Concept:</strong> A standard four-paragraph portrait moves smoothly from introducing the subject and their background, to describing outward appearance, illustrating defining character habits with a concrete anecdote, and closing with lasting personal admiration (British Council, 2026).',
+      personalSlot: '<strong>My Descriptive Essay:</strong> Space reserved for my own Unit 1 descriptive writing task and teacher feedback.',
+      refs: [
+        'British Council. (2026). <em>Writing skills practice: Describing a person or place</em>. LearnEnglish Teens. https://learnenglishteens.britishcouncil.org/skills/writing',
+        'Purdue Online Writing Lab. (2026). <em>Descriptive essays</em>. Purdue University. https://owl.purdue.edu/owl/general_writing/academic_writing/essay_writing/descriptive_essays.html'
+      ]
+    },
+    activities: {
+      preview: 'Unit 1 grammar practice, PAU reported-speech verification checklist, and personal coursework space.',
+      intro: 'Space reserved for my own Unit 1 textbook exercises, reported speech transformations, and assessed classwork.',
+      extraBlocks: [
+        {
+          badge: 'Extra · Study Tool',
+          title: '5-Step Verification Checklist for Reported Speech Exercises',
+          body: '<ul><li><strong>1. Reporting verb:</strong> Did I use <em>told + object</em> vs. <em>said (+ that)</em> correctly?</li><li><strong>2. Pronouns & possessives:</strong> Did <em>I / my / we</em> shift to match the new speaker?</li><li><strong>3. Tense backshift:</strong> Did the main verb step one tense into the past?</li><li><strong>4. Question word order:</strong> Did I remove <em>do/does/did</em> and use affirmative <em>subject + verb</em> order?</li><li><strong>5. Time & place:</strong> Did words like <em>yesterday</em>, <em>tomorrow</em>, or <em>here</em> change?</li></ul>'
+        }
+      ],
+      personalSlot: '<strong>Unit 1 Solved Exercises:</strong> <img src="WhatsApp Image 2026-11-22 at 17.05.13.jpeg" alt="Unit 1 exercises" style="width:100%; border-radius:6px; margin-top:0.75rem; border:1px solid var(--border); display:block;">'
+    }
+  },
+  {
+    u: 2,
+    title: 'Unit 2 — In good time',
+    subtitle: 'Learning situation: How can we effectively manage our time?',
+    grammar: {
+      preview: 'Infinitive vs. gerund verb patterns: when to use -ing or to + verb, verbs that shift meaning, verb + object + infinitive, and prepositional "to + -ing".',
+      description: 'In English, a <strong>gerund</strong> (<em>verb + -ing</em>) functions grammatically like a noun (<em>coding, planning</em>), whereas an <strong>infinitive</strong> consists of <em>to + base verb</em> (<em>to code, to plan</em>). When two verbs follow each other directly, the first verb governs whether the second takes a gerund or an infinitive (British Council, 2026).',
+      splitCards: [
+        {
+          title: 'When to use the Gerund (-ing)',
+          items: [
+            '<strong>After specific verbs:</strong> <em>enjoy, avoid, imagine, suggest, consider, finish, keep, miss, mind</em>.',
+            '<strong>After any preposition:</strong> <em>keen on, fed up with, before / after, There’s no point in rushing</em>.',
+            '<strong>As the subject of a sentence:</strong> <em>Organizing your week on Sunday saves hours of stress.</em>'
+          ]
+        },
+        {
+          title: 'When to use the Infinitive (to + V1)',
+          items: [
+            '<strong>After specific verbs:</strong> <em>manage, need, promise, decide, hope, want, plan, learn, agree, refuse, expect</em>.',
+            '<strong>After adjectives:</strong> <em>It’s essential to prioritize high-impact tasks.</em>',
+            '<strong>To express purpose (= in order to):</strong> <em>I silence my phone to stay focused while studying.</em>'
+          ]
+        }
+      ],
+      formulas: [
+        { name: 'Quick Memory Grouping', rule: 'avoid, imagine, suggest, enjoy, finish, consider + -ing   |   manage, need, promise, decide, hope, want, plan + to V1' },
+        { name: 'Verb + Object + Infinitive', rule: 'Subject + want / ask / would like / advise + object + to + infinitive' }
+      ],
+      tables: [
+        {
+          caption: 'Verbs Followed by Both Forms with a Change in Meaning',
+          headers: ['Verb', '+ Infinitive (to + V1)', '+ Gerund (-ing)'],
+          rows: [
+            ['<strong>remember</strong>', 'Future obligation: <em>Remember to back up your files before updating.</em>', 'Past memory: <em>I remember backing up the folder last night.</em>'],
+            ['<strong>forget</strong>', 'Future task: <em>Don’t forget to set your alarm for tomorrow.</em>', 'Past experience: <em>I’ll never forget running my first 10K race.</em>'],
+            ['<strong>regret</strong>', 'Delivering bad news: <em>We regret to inform you that the flight is delayed.</em>', 'Remorse over past action: <em>He regrets staying up so late before the test.</em>'],
+            ['<strong>stop</strong>', 'Pause one action in order to do another: <em>We stopped to buy water halfway up the trail.</em>', 'Quit an activity completely: <em>She stopped checking social media during exam week.</em>'],
+            ['<strong>try</strong>', 'Make a difficult effort: <em>I tried to solve the equation without a calculator.</em>', 'Experiment with a method: <em>Try using the Pomodoro technique if you lose focus.</em>']
+          ]
+        },
+        {
+          caption: 'Verb + Object + Infinitive (With vs. Without "to")',
+          headers: ['Pattern', 'Verbs in This Group', 'Original Example'],
+          rows: [
+            ['With <code>to</code>', '<code>allow, ask, get, help, forbid, expect, want, would like, tell, advise, invite, order</code>', '<em>A digital calendar allows us to visualize our deadlines clearly.</em>'],
+            ['Without <code>to</code> (bare infinitive)', '<code>make, let, help</code> + perception verbs (<code>see, watch, hear, feel, notice, sense</code>)', '<em>Strict deadlines make me work more efficiently.</em> (Note: <em>help</em> accepts both: <em>help me (to) organize</em>.)']
+          ]
+        },
+        {
+          caption: 'Bilingual Practice Examples (English ↔ Català)',
+          headers: ['English', 'Català'],
+          rows: [
+            ['<em>Planning your study blocks ahead prevents last-minute panic.</em>', 'Planificar els blocs d’estudi amb antelació evita el pànic d’última hora.'],
+            ['<em>They managed to debug the entire program before midnight.</em>', 'Van aconseguir depurar tot el programa abans de mitjanit.'],
+            ['<em>I turn off notifications to avoid getting distracted.</em>', 'Desactivo les notificacions per evitar distreure’m.'],
+            ['<em>Our tutor suggested breaking large projects into weekly milestones.</em>', 'El nostre tutor va suggerir dividir els projectes grans en fites setmanals.'],
+            ['<em>She promised to review my essay draft before Friday.</em>', 'Va prometre revisar l’esborrany de la meva redacció abans de divendres.'],
+            ['<em>I clearly remember locking the lab door when we left.</em>', 'Recordo perfectament haver tancat la porta del laboratori amb clau quan vam marxar.'],
+            ['<em>He stopped playing video games once finals began.</em>', 'Va deixar de jugar a videojocs un cop van començar els exàmens finals.'],
+            ['<em>Try studying in 45-minute intervals if you feel tired.</em>', 'Prova d’estudiar en intervals de 45 minuts si et sents cansat.'],
+            ['<em>My coach would like me to compete in the spring tournament.</em>', 'Al meu entrenador li agradaria que competís al torneig de primavera.'],
+            ['<em>The instructor made us repeat the sparring drill three times.</em>', 'L’instructor ens va fer repetir l’exercici de combat tres vegades.'],
+            ['<em>Exam regulations don’t allow candidates to bring smartwatches.</em>', 'La normativa d’examen no permet als candidats portar rellotges intel·ligents.'],
+            ['<em>I heard the bell ring just as I finished the last paragraph.</em>', 'Vaig sentir sonar el timbre just quan acabava l’últim paràgraf.']
+          ]
+        }
+      ],
+      extraBlocks: [
+        {
+          badge: 'Extra · Advanced Uses',
+          title: 'When "to" is a Preposition (+ -ing) & Passive / Perfect Forms',
+          body: '<ul><li><strong>Prepositional "to" + -ing:</strong> In expressions like <em>look forward to</em>, <em>be used to</em>, <em>get used to</em>, <em>object to</em>, and <em>admit to</em>, the word <em>to</em> is a preposition and must be followed by a gerund: <em>I’m looking forward to starting university.</em></li><li><strong>Passive Gerund & Infinitive:</strong> Use <em>being + V3</em> or <em>to be + V3</em> when the subject receives the action: <em>Nobody likes being interrupted while concentrating</em> / <em>The report needs to be submitted today.</em></li></ul>'
+        }
+      ],
+      commonMistake: '<strong>Common pitfalls & PAU exam traps:</strong> Never use a <em>that</em>-clause after verbs of desire or request (write <em>She wants me to help her</em>, never <em>She wants that I help her</em>). Likewise, distinguish <em>used to + V1</em> (past habit: <em>I used to wake up late</em>) from <em>be used to + -ing</em> (accustomed to: <em>I am used to waking up early</em>).',
+      refs: [
+        'British Council. (2026). <em>Verbs followed by "-ing" or by "to" + infinitive</em>. LearnEnglish Grammar. https://learnenglish.britishcouncil.org/grammar/b1-b2-grammar/verbs-followed-ing-or-infinitive',
+        'Oxford University Press. (2026). <em>Verb patterns: Gerunds and infinitives</em>. Oxford Learner’s Dictionaries. https://www.oxfordlearnersdictionaries.com/grammar/practical-english-usage/verb-patterns'
+      ]
+    },
+    vocabulary: {
+      preview: 'Vocabulary covering time expressions, homonyms, behaviour adjectives, 10 phrasal verbs, 5 idioms, plus contextual homonym contrasts—all translated into Catalan.',
+      groups: [
+        {
+          group: 'Time',
+          items: [
+            { word: 'age', meaning: 'edat / època' },
+            { word: 'calendar', meaning: 'calendari' },
+            { word: 'chronological', meaning: 'cronològic' },
+            { word: 'date back', meaning: 'remuntar-se a' },
+            { word: 'go back', meaning: 'retrocedir / tornar enrere' },
+            { word: 'go forward', meaning: 'avançar / anar endavant' },
+            { word: 'keep track', meaning: 'fer seguiment / portar el compte' },
+            { word: 'leap year', meaning: 'any de traspàs' },
+            { word: 'random', meaning: 'aleatori' },
+            { word: 'slow down', meaning: 'alentir / anar més a poc a poc' },
+            { word: 'speed up', meaning: 'accelerar' },
+            { word: 'sunrise', meaning: 'sortida de sol / alba' },
+            { word: 'sunset', meaning: 'posta de sol / capvespre' },
+            { word: 'time zone', meaning: 'fus horari' }
+          ]
+        },
+        {
+          group: 'Homonyms',
+          note: 'Words that share identical spelling with another word while carrying a completely different meaning depending on context.',
+          items: [
+            { word: 'order', meaning: 'ordre / comanda' },
+            { word: 'relation', meaning: 'relació / parent' },
+            { word: 'right', meaning: 'dret / correcte / dreta' },
+            { word: 'shape', meaning: 'forma / estat físic' },
+            { word: 'speaker', meaning: 'orador / altaveu' },
+            { word: 'stage', meaning: 'etapa / escenari' },
+            { word: 'subject', meaning: 'assignatura / tema / subjecte' },
+            { word: 'view', meaning: 'vista / opinió' }
+          ]
+        },
+        {
+          group: 'Behaviour',
+          items: [
+            { word: 'caring', meaning: 'atent / afectuós' },
+            { word: 'considerate', meaning: 'considerat' },
+            { word: 'open-minded', meaning: 'de ment oberta' },
+            { word: 'self-confident', meaning: 'segur de si mateix' },
+            { word: 'trustworthy', meaning: 'de confiança / fiable' },
+            { word: 'antisocial', meaning: 'antisocial' },
+            { word: 'argumentative', meaning: 'discutidor / polèmic' },
+            { word: 'grumpy', meaning: 'rondinaire / malhumorat' },
+            { word: 'moody', meaning: 'temperamental / canviant' },
+            { word: 'self-centred', meaning: 'egocèntric' }
+          ]
+        },
+        {
+          group: 'Phrasal Verbs',
+          items: [
+            { word: 'catch up with', meaning: 'Reach someone or get up to date (Posar-se al dia amb / atrapar)' },
+            { word: 'come up with', meaning: 'Think of an idea or solution (Idear, proposar)' },
+            { word: 'end up', meaning: 'Finally arrive in a situation (Acabar en una situació)' },
+            { word: 'get by', meaning: 'Manage with limited resources (Sortir-se’n / anar tirant)' },
+            { word: 'look back (on)', meaning: 'Reflect on the past (Mirar enrere, recordar)' },
+            { word: 'set off', meaning: 'Begin a journey (Sortir de viatge, emprendre el camí)' },
+            { word: 'take on', meaning: 'Accept work or responsibility (Assumir feina o responsabilitat)' },
+            { word: 'take up', meaning: 'Start a new hobby or activity (Començar una afició)' },
+            { word: 'tune in', meaning: 'Listen to or watch a broadcast (Sintonitzar)' },
+            { word: 'wrap up', meaning: 'Finish or bring to a close (Acabar, concloure)' }
+          ]
+        },
+        {
+          group: 'Idioms',
+          items: [
+            { word: 'A watched pot never boils', meaning: 'Time feels slower when waiting impatiently (Quan més esperes una cosa, més triga a arribar)' },
+            { word: 'Bite off more than you can chew', meaning: 'Take on more than you can handle (Abastar més del que pots assumir)' },
+            { word: 'To think outside the box', meaning: 'Look for original, creative solutions (Pensar de manera creativa i original)' },
+            { word: 'Let the cat out of the bag', meaning: 'Reveal a secret unintentionally (Descobrir el pastís / revelar un secret)' },
+            { word: 'When there’s smoke, there’s fire', meaning: 'Signs usually point to something true (Quan el riu sona, aigua porta)' }
+          ]
+        }
+      ],
+      extraBlocks: [
+        {
+          badge: 'Extra · Context & Precision',
+          title: 'Homonyms in Action & Time Preposition Nuances (Català)',
+          body: '<ul><li><strong>stage:</strong> <em>The final stage of the project</em> (l’última etapa del projecte) vs. <em>The speaker walked onto the stage</em> (el ponent va pujar a l’escenari).</li><li><strong>shape:</strong> <em>Keep in good physical shape</em> (mantenir-se en bona forma física) vs. <em>A geometric shape</em> (una figura geomètrica).</li><li><strong>on time vs. in time:</strong> <em>On time</em> = puntualment, a l’hora prevista; <em>In time</em> = amb temps suficient, abans que sigui massa tard.</li></ul>'
+        }
+      ]
+    },
+    textTypes: {
+      preview: 'Narrative essay guide: 4-paragraph story arc, narrative tenses, time-sequencing connectors (with Catalan equivalents), pacing techniques, and self-editing checklist.',
+      heading: 'Narrative',
+      intro: 'A <strong>narrative</strong> recounts a real or fictional past event (typically 120–200 words, such as a turning point or unexpected challenge) through a clear chronological arc.',
+      bullets: [
+        '<strong>1. Paragraph 1 (Background):</strong> Establish the setting, time, and initial situation before the main event unfolds.',
+        '<strong>2. Paragraphs 2 & 3 (Main Events):</strong> Build the sequence of actions and describe your emotional reactions in detail.',
+        '<strong>3. Paragraph 4 (Ending):</strong> Reveal the resolution, how you felt afterwards, and what you learned from the experience.'
+      ],
+      extraText: '<strong>Tenses & Narrative Craft:</strong> Combine <em>past continuous</em> (to establish atmosphere), <em>past simple</em> (for key actions), <em>past perfect</em> (for earlier background events), and <em>present simple / perfect</em> (to reflect on lasting impact). Enrich your prose with expressive adverbs (<em>effortlessly</em>), vivid similes (<em>my pulse was racing like an engine</em>), and stronger verbs or adjectives (<em>petrified</em> instead of <em>scared</em>; <em>hesitate</em> instead of <em>stop</em>).',
+      connectorsTable: {
+        caption: 'Time Sequencers & Narrative Expressions (English → Català)',
+        headers: ['Function', 'Connectors & Expressions', 'Equivalència en català'],
+        rows: [
+          ['Main sequence', '<code>at first</code>, <code>then</code>, <code>next</code>, <code>soon</code>, <code>finally</code>, <code>eventually</code>, <code>in the end</code>', 'al principi, després, tot seguit, aviat, finalment, al capdavall'],
+          ['Before and after', '<code>before</code>, <code>earlier</code>, <code>after</code>, <code>later</code>, <code>afterwards</code>', 'abans, més d’hora, després, més tard, posteriorment'],
+          ['Simultaneous events', '<code>as</code>, <code>as soon as</code>, <code>when</code>, <code>during</code>, <code>while</code>, <code>just then</code>', 'mentre, tan bon punt, quan, durant, just en aquell moment'],
+          ['Sudden shifts', '<code>all of a sudden</code>, <code>the next thing I knew</code>', 'de sobte, sense adonar-me’n'],
+          ['Commenting adverbs', '<code>amazingly</code>, <code>incredibly</code>, <code>luckily</code>, <code>fortunately</code>, <code>sadly</code>, <code>unfortunately</code>', 'sorprenentment, increïblement, per sort, afortunadament, malauradament'],
+          ['Reflecting on events', '<em>It was a day I’ll never forget.</em> / <em>Since that day, ...</em> / <em>It completely changed my outlook.</em>', 'Va ser un dia que no oblidaré mai. / Des d’aquell dia... / Em va canviar completament la perspectiva.']
+        ]
+      },
+      extraBlocks: [
+        {
+          badge: 'Extra · Narrative Craft',
+          title: 'Tension Pacing & Pre-Submission Checklist',
+          body: '<ul><li><strong>Verb & adjective upgrades:</strong> Replace <em>walked fast</em> with <em>sprinted / dashed</em> (córrer precipitadament); replace <em>very tired</em> with <em>exhausted / drained</em> (esgotat); replace <em>surprised</em> with <em>astonished / taken aback</em> (estupefacte).</li><li><strong>Checklist:</strong> Clear past-tense consistency · At least 4 varied time sequencers · Sensory details (sight, sound, emotion) · Word count between 120 and 200 words.</li></ul>'
+        }
+      ],
+      modelSummary: '<strong>Reference Model Concept:</strong> An effective four-paragraph narrative opens with the setting and initial hesitation, builds tension through sensory comparisons during the decisive moment, and closes with a reflective takeaway on personal growth (Cambridge University Press, 2026).',
+      personalSlot: '<strong>My Narrative Composition:</strong> Space reserved for my own Unit 2 narrative writing task.',
+      refs: [
+        'Cambridge University Press. (2026). <em>B2 First & Batxillerat writing guide: Writing a story</em>. Cambridge English. https://www.cambridgeenglish.org/learning-english/activities-for-learners/',
+        'Purdue Online Writing Lab. (2026). <em>Narrative essays</em>. Purdue University. https://owl.purdue.edu/owl/general_writing/academic_writing/essay_writing/narrative_essays.html'
+      ]
+    },
+    activities: {
+      preview: 'Unit 2 gerund vs. infinitive practice worksheets, error-analysis log, and personal coursework space.',
+      intro: 'Space reserved for my own Unit 2 grammar worksheets (verb + -ing / to-infinitive drills) and class exercises.',
+      extraBlocks: [
+        {
+          badge: 'Extra · Study Tool',
+          title: 'Verb Pattern Self-Test Strategy for Worksheets',
+          body: '<ul><li><strong>Step 1 — Check for prepositions:</strong> Any verb immediately after a preposition (<em>in, on, at, without, before, after</em>) automatically takes <strong>-ing</strong>.</li><li><strong>Step 2 — Check for an object:</strong> If the structure is <em>verb + someone + verb</em>, test whether it requires <em>to</em> (<em>advise him to go</em>) or bare infinitive (<em>make him go</em>).</li><li><strong>Step 3 — Meaning-shift check:</strong> For <em>remember, forget, regret, stop, try</em>, ask whether the second action happens <strong>before</strong> (-ing) or <strong>after</strong> (to + V1) the main verb.</li></ul>'
+        }
+      ],
+      personalSlot: '<strong>Unit 2 Solved Exercises:</strong> <img src="WhatsApp Image 2026-11-22 at 17.05.14 (1).jpeg" alt="Unit 1 exercises" style="width:100%; border-radius:6px; margin-top:0.75rem; border:1px solid var(--border); display:block;">'
+    }
+  }
+];
+
+/* ==========================================================================
+   2. THEME & PERSISTENT STATE
+   ========================================================================== */
+const THEME_KEY = 'ysc_t1_theme_v5';
+const VOCAB_KEY = 'ysc_t1_vocab_v5';
+
+let learnedSet = new Set();
+try {
+  const saved = JSON.parse(localStorage.getItem(VOCAB_KEY) || '[]');
+  if (Array.isArray(saved)) learnedSet = new Set(saved);
+} catch (e) {}
+
+function saveLearned() {
+  try { localStorage.setItem(VOCAB_KEY, JSON.stringify([...learnedSet])); } catch (e) {}
+}
+
+const themeBtn = document.getElementById('theme-btn');
+function setTheme(mode) {
+  document.documentElement.setAttribute('data-theme', mode);
+  const isDark = mode === 'dark';
+  themeBtn.textContent = isDark ? 'Light' : 'Dark';
+  themeBtn.setAttribute('aria-pressed', String(isDark));
+}
+
+(function () {
+  let saved = null;
+  try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+  if (saved === 'dark' || saved === 'light') {
+    setTheme(saved);
+  } else {
+    const sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(sysDark ? 'dark' : 'light');
+  }
+})();
+
+themeBtn.addEventListener('click', () => {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  setTheme(next);
+  try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+});
+
+/* ==========================================================================
+   2B. CUSTOM CURSOR WITH INERTIA (LERP) & MIX-BLEND-MODE
+   ========================================================================== */
+const lerp = (start, end, factor) => start + (end - start) * factor;
+const cursorDot = document.getElementById('cursorDot');
+const cursorRing = document.getElementById('cursorRing');
+
+let cursorMouseX = window.innerWidth / 2;
+let cursorMouseY = window.innerHeight / 2;
+let dotX = cursorMouseX;
+let dotY = cursorMouseY;
+let ringX = cursorMouseX;
+let ringY = cursorMouseY;
+
+window.addEventListener('mousemove', (e) => {
+  cursorMouseX = e.clientX;
+  cursorMouseY = e.clientY;
+}, { passive: true });
+
+document.addEventListener('mouseover', (e) => {
+  const interactiveTarget = e.target.closest('a, button, input, [role="button"], [data-cursor="hover"]');
+  if (interactiveTarget) {
+    cursorRing.classList.add('is-hovering');
+    cursorDot.classList.add('is-hovering');
+  }
+});
+
+document.addEventListener('mouseout', (e) => {
+  const interactiveTarget = e.target.closest('a, button, input, [role="button"], [data-cursor="hover"]');
+  if (interactiveTarget) {
+    cursorRing.classList.remove('is-hovering');
+    cursorDot.classList.remove('is-hovering');
+  }
+});
+
+function animateCustomCursor() {
+  if (cursorDot && cursorRing) {
+    dotX = lerp(dotX, cursorMouseX, 0.48);
+    dotY = lerp(dotY, cursorMouseY, 0.48);
+    ringX = lerp(ringX, cursorMouseX, 0.16);
+    ringY = lerp(ringY, cursorMouseY, 0.16);
+
+    cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0)`;
+    cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+  }
+  requestAnimationFrame(animateCustomCursor);
+}
+requestAnimationFrame(animateCustomCursor);
+
+/* ==========================================================================
+   3. MOBILE DRAWER MENU
+   ========================================================================== */
+const sidebar = document.getElementById('sidebar');
+const backdrop = document.getElementById('sidebar-backdrop');
+const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+
+function toggleMobileMenu(forceState) {
+  const open = typeof forceState === 'boolean' ? forceState : !sidebar.classList.contains('open');
+  sidebar.classList.toggle('open', open);
+  backdrop.classList.toggle('open', open);
+  mobileMenuBtn.setAttribute('aria-expanded', String(open));
+}
+
+mobileMenuBtn.addEventListener('click', () => toggleMobileMenu());
+backdrop.addEventListener('click', () => toggleMobileMenu(false));
+sidebar.addEventListener('click', e => {
+  if (e.target.closest('a') && window.innerWidth <= 880) {
+    toggleMobileMenu(false);
+  }
+});
+
+/* ==========================================================================
+   4. RENDER TERM 1 UNITS WITH COLLAPSIBLE SUBTOPIC CARDS
+   ========================================================================== */
+function esc(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function renderTable(t) {
+  return `
+    ${t.caption ? `<h5 class="detail-subhead">${esc(t.caption)}</h5>` : ''}
+    <div class="table-scroll">
+      <table class="data-table">
+        <thead><tr>${t.headers.map(h => `<th>${esc(h)}</th>`).join('')}</tr></thead>
+        <tbody>${t.rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody>
+      </table>
+    </div>`;
+}
+
+function renderExtraBlocks(blocks) {
+  if (!blocks || !blocks.length) return '';
+  return blocks.map(b => `
+    <div class="extra-box">
+      <span class="extra-badge">${esc(b.badge)}</span>
+      <h5>${esc(b.title)}</h5>
+      ${b.body}
+    </div>
+  `).join('');
+}
+
+function renderGrammarDetail(g) {
+  let out = '';
+  if (g.description) out += `<p class="note-callout">${g.description}</p>`;
+
+  if (g.uses && g.uses.length) {
+    out += `<h5 class="detail-subhead">Key Uses</h5><ul class="text-ul">${g.uses.map(u => `<li>${u}</li>`).join('')}</ul>`;
+  }
+
+  if (g.splitCards && g.splitCards.length) {
+    out += `<div class="two-col-cards">${g.splitCards.map(c => `
+      <div class="mini-rule-card">
+        <strong class="card-cap">${esc(c.title)}</strong>
+        <ul>${c.items.map(it => `<li>${it}</li>`).join('')}</ul>
+      </div>
+    `).join('')}</div>`;
+  }
+
+  if (g.formulas && g.formulas.length) {
+    out += `<h5 class="detail-subhead">Core Structures</h5>`;
+    g.formulas.forEach(f => {
+      out += `<div class="formula-box"><span class="formula-label">${esc(f.name)}</span><code>${esc(f.rule)}</code></div>`;
+    });
+  }
+
+  if (g.tables && g.tables.length) {
+    g.tables.forEach(t => { out += renderTable(t); });
+  }
+
+  out += renderExtraBlocks(g.extraBlocks);
+
+  if (g.commonMistake) {
+    out += `<div class="mistake-callout">${g.commonMistake}</div>`;
+  }
+
+  if (g.refs && g.refs.length) {
+    out += `<h5 class="detail-subhead">Reliable Sources (APA)</h5><ul class="apa-refs">${g.refs.map(r => `<li>${r}</li>`).join('')}</ul>`;
+  }
+  return out;
+}
+
+function renderVocabularyDetail(uNum, v) {
+  const total = v.groups.reduce((acc, g) => acc + g.items.length, 0);
+  const listsHtml = v.groups.map(g => `
+    <div class="vocab-group-block">
+      <div class="vocab-group-title">${esc(g.group)}</div>
+      ${g.note ? `<p class="vocab-group-note">${esc(g.note)}</p>` : ''}
+      <ul class="chip-list">
+        ${g.items.map(it => {
+          const key = `u${uNum}:${it.word.toLowerCase()}`;
+          const learned = learnedSet.has(key);
+          return `
+            <li class="word-chip ${learned ? 'is-learned' : ''}" tabindex="0" role="button" aria-pressed="${learned}" data-wkey="${esc(key)}">
+              <span class="word-check" aria-hidden="true">✓</span>
+              <span class="word-en">${esc(it.word)}</span>
+              <span class="word-ca">· ${esc(it.meaning)}</span>
+            </li>`;
+        }).join('')}
+      </ul>
+    </div>
+  `).join('');
+
+  return `
+    <div class="vocab-wrap" data-vocab-unit="${uNum}">
+      <div class="vocab-toolbar">
+        <span>Click a word to mark learned (<strong class="unit-vcount" data-u="${uNum}">0 / ${total}</strong>)</span>
+        <button type="button" class="study-btn" aria-pressed="false" data-toggle-meanings="${uNum}">Hide Catalan meanings</button>
+      </div>
+      ${listsHtml}
+      ${renderExtraBlocks(v.extraBlocks)}
+    </div>`;
+}
+
+function renderTextTypesDetail(tt) {
+  let out = '';
+  if (tt.heading) out += `<h5 class="detail-subhead">${esc(tt.heading)} — Structure & Conventions</h5>`;
+  if (tt.intro) out += `<p class="text-p">${tt.intro}</p>`;
+  if (tt.bullets) out += `<ul class="text-ul">${tt.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`;
+  if (tt.extraText) out += `<p class="text-p">${tt.extraText}</p>`;
+  if (tt.connectorsTable) out += renderTable(tt.connectorsTable);
+  out += renderExtraBlocks(tt.extraBlocks);
+  if (tt.modelSummary) out += `<p class="note-callout" style="margin-top:1rem">${tt.modelSummary}</p>`;
+  if (tt.personalSlot) out += `<div class="personal-slot">${tt.personalSlot}</div>`;
+  if (tt.refs && tt.refs.length) {
+    out += `<h5 class="detail-subhead">Reliable Sources (APA)</h5><ul class="apa-refs">${tt.refs.map(r => `<li>${r}</li>`).join('')}</ul>`;
+  }
+  return out;
+}
+
+function renderActivitiesDetail(act) {
+  let out = '';
+  if (act.intro) out += `<p class="text-p">${act.intro}</p>`;
+  out += renderExtraBlocks(act.extraBlocks);
+  if (act.personalSlot) out += `<div class="personal-slot">${act.personalSlot}</div>`;
+  return out;
+}
+
+function renderTopicCard(num, key, label, previewText, detailHtml) {
+  return `
+    <div class="topic-item" data-topic="${key}">
+      <button class="topic-trigger" type="button" aria-expanded="false">
+        <span class="topic-trigger-text">
+          <span class="topic-head-row">
+            <span class="topic-num">${num}</span>
+            <span class="topic-title">${esc(label)}</span>
+          </span>
+          <span class="topic-preview">${esc(previewText)}</span>
+        </span>
+        <span class="topic-state-pill">
+          <span class="state-word">Details</span>
+          <svg class="topic-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+
+      <div class="topic-drawer">
+        <div class="topic-drawer-clip">
+          <div class="topic-detail-body">
+            ${detailHtml}
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
+document.getElementById('units-container').innerHTML = TERM1_UNITS.map(unit => `
+  <article class="unit-block tilt-card reveal" id="unit-${unit.u}" data-u="${unit.u}" data-tilt="1.3">
+    <div class="unit-header">
+      <div>
+        <div class="unit-tag"><span class="u-dot" data-u="${unit.u}"></span><span>Unit 0${unit.u}</span></div>
+        <h3>${esc(unit.title)}</h3>
+        <p class="unit-desc">${esc(unit.subtitle)}</p>
+      </div>
+      <button class="unit-expand-btn" type="button" data-expand-unit="${unit.u}" data-expanded="false">Expand all</button>
+    </div>
+
+    <div class="topic-list">
+      ${renderTopicCard('01', 'grammar', 'Grammar', unit.grammar.preview, renderGrammarDetail(unit.grammar))}
+      ${renderTopicCard('02', 'vocabulary', 'Vocabulary', unit.vocabulary.preview, renderVocabularyDetail(unit.u, unit.vocabulary))}
+      ${renderTopicCard('03', 'text-types', 'Text Types', unit.textTypes.preview, renderTextTypesDetail(unit.textTypes))}
+      ${renderTopicCard('04', 'activities', 'Activities', unit.activities.preview, renderActivitiesDetail(unit.activities))}
+    </div>
+  </article>
+`).join('');
+
+/* ==========================================================================
+   5. COLLAPSIBLE SUBTOPIC INTERACTIONS
+   ========================================================================== */
+function setTopicOpen(item, open) {
+  item.classList.toggle('is-open', open);
+  const btn = item.querySelector('.topic-trigger');
+  const word = item.querySelector('.state-word');
+  if (btn) btn.setAttribute('aria-expanded', String(open));
+  if (word) word.textContent = open ? 'Close' : 'Details';
+}
+
+function syncUnitExpandButton(unitEl) {
+  const expandBtn = unitEl.querySelector('.unit-expand-btn');
+  if (!expandBtn) return;
+  const visibleItems = [...unitEl.querySelectorAll('.topic-item:not([hidden])')];
+  const allOpen = visibleItems.length > 0 && visibleItems.every(el => el.classList.contains('is-open'));
+  expandBtn.dataset.expanded = String(allOpen);
+  expandBtn.textContent = allOpen ? 'Collapse all' : 'Expand all';
+}
+
+document.addEventListener('click', e => {
+  const trigger = e.target.closest('.topic-trigger');
+  if (trigger) {
+    const item = trigger.closest('.topic-item');
+    const unitEl = trigger.closest('.unit-block');
+    if (item) {
+      setTopicOpen(item, !item.classList.contains('is-open'));
+      if (unitEl) syncUnitExpandButton(unitEl);
+    }
+    return;
+  }
+
+  const expandUnitBtn = e.target.closest('.unit-expand-btn');
+  if (expandUnitBtn) {
+    const unitEl = expandUnitBtn.closest('.unit-block');
+    if (!unitEl) return;
+    const targetOpen = expandUnitBtn.dataset.expanded !== 'true';
+    unitEl.querySelectorAll('.topic-item:not([hidden])').forEach(item => setTopicOpen(item, targetOpen));
+    syncUnitExpandButton(unitEl);
+  }
+});
+
+/* ==========================================================================
+   6. MINIMALIST JS EFFECTS: 3D TILT + SPOTLIGHT, MAGNETIC CTA & REVEAL
+   ========================================================================== */
+const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasFinePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+
+if (!prefersReducedMotion && hasFinePointer) {
+  document.querySelectorAll('.tilt-card').forEach(card => {
+    const maxTilt = parseFloat(card.dataset.tilt) || 2.5;
+    let rafId = null;
+
+    card.addEventListener('pointermove', e => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const px = (x / rect.width) - 0.5;
+        const py = (y / rect.height) - 0.5;
+
+        const rotX = (-py * maxTilt).toFixed(2);
+        const rotY = (px * maxTilt).toFixed(2);
+
+        card.style.setProperty('--mx', `${x.toFixed(1)}px`);
+        card.style.setProperty('--my', `${y.toFixed(1)}px`);
+        card.style.setProperty('--sheen-op', '1');
+        card.style.transform = `perspective(1200px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      });
+    });
+
+    card.addEventListener('pointerleave', () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      card.style.setProperty('--sheen-op', '0');
+      card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg)';
+    });
+  });
+
+  const magBtn = document.getElementById('magnetic-cta');
+  if (magBtn) {
+    magBtn.addEventListener('pointermove', e => {
+      const rect = magBtn.getBoundingClientRect();
+      const dx = (e.clientX - (rect.left + rect.width / 2)) * 0.22;
+      const dy = (e.clientY - (rect.top + rect.height / 2)) * 0.22;
+      magBtn.style.transform = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px)`;
+    });
+    magBtn.addEventListener('pointerleave', () => {
+      magBtn.style.transform = 'translate(0px, 0px)';
+    });
+  }
+}
+
+const revealEls = document.querySelectorAll('.reveal');
+if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  revealEls.forEach(el => observer.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('is-visible'));
+}
+
+/* ==========================================================================
+   7. TWO-VIEW SWITCHING (PROFILE ALONE vs. TERM 1 ALONE) & SCROLL-SPY
+   ========================================================================== */
+const viewProfile = document.getElementById('view-profile');
+const viewTerm1 = document.getElementById('view-term1');
+const railFill = document.getElementById('rail-fill');
+let activeView = 'profile';
+
+function updateSidebarProgress() {
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPct = docHeight > 0 ? Math.min(100, Math.max(0, (window.scrollY / docHeight) * 100)) : 0;
+  if (railFill) railFill.style.height = `${scrollPct}%`;
+
+  const spySections = activeView === 'profile'
+    ? ['overview', 'about', 'method']
+    : ['term-1', 'unit-1', 'unit-2'];
+
+  let activeId = spySections[0];
+  const offset = 180;
+  for (const id of spySections) {
+    const el = document.getElementById(id);
+    if (el && !el.hidden && el.getBoundingClientRect().top <= offset) {
+      activeId = id;
+    }
+  }
+
+  document.querySelectorAll('[data-spy]').forEach(link => {
+    const spy = link.dataset.spy;
+    if (spy === 'profile') {
+      link.classList.toggle('active', activeView === 'profile');
+    } else if (spy === 'term-1') {
+      link.classList.toggle('active', activeView === 'term1' && activeId === 'term-1');
+    } else {
+      link.classList.toggle('active', spy === activeId);
+    }
+  });
+}
+
+function switchView(viewName, targetId = null, pushHash = true) {
+  activeView = viewName === 'term1' ? 'term1' : 'profile';
+
+  viewProfile.hidden = activeView !== 'profile';
+  viewTerm1.hidden = activeView !== 'term1';
+
+  const activeContainer = activeView === 'profile' ? viewProfile : viewTerm1;
+  activeContainer.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+
+  if (pushHash) {
+    const newHash = targetId ? `#${targetId}` : (activeView === 'term1' ? '#term-1' : '#profile');
+    if (window.location.hash !== newHash) {
+      history.replaceState(null, '', newHash);
+    }
+  }
+
+  if (targetId) {
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      requestAnimationFrame(() => {
+        targetEl.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+        updateSidebarProgress();
+      });
+      return;
+    }
+  }
+
+  window.scrollTo({ top: 0, behavior: 'auto' });
+  updateSidebarProgress();
+}
+
+document.addEventListener('click', e => {
+  const link = e.target.closest('[data-view-link]');
+  if (!link) return;
+  e.preventDefault();
+  const viewName = link.dataset.viewLink;
+  const targetId = link.dataset.target || null;
+  switchView(viewName, targetId, true);
+});
+
+function syncFromHash() {
+  const hash = window.location.hash.replace('#', '');
+  if (hash === 'term-1' || hash === 'unit-1' || hash === 'unit-2') {
+    switchView('term1', hash === 'term-1' ? null : hash, false);
+  } else if (hash === 'overview' || hash === 'about' || hash === 'method') {
+    switchView('profile', hash, false);
+  } else {
+    switchView('profile', null, false);
+  }
+}
+
+window.addEventListener('hashchange', syncFromHash);
+window.addEventListener('scroll', updateSidebarProgress, { passive: true });
+syncFromHash();
+
+/* ==========================================================================
+   8. SEARCH (AUTO-SWITCHES TO TERM 1 & EXPANDS MATCHES) & VOCABULARY TRACKING
+   ========================================================================== */
+const searchInput = document.getElementById('global-search');
+const clearBtn = document.getElementById('search-clear');
+const emptyBox = document.getElementById('empty-search');
+
+function runSearch(raw) {
+  const q = raw.trim().toLowerCase();
+  clearBtn.classList.toggle('visible', q.length > 0);
+  let visibleUnits = 0;
+
+  document.querySelectorAll('.unit-block').forEach(unitEl => {
+    let unitHasMatch = false;
+
+    unitEl.querySelectorAll('.topic-item').forEach(item => {
+      const match = q === '' || item.textContent.toLowerCase().includes(q);
+      item.hidden = !match;
+
+      if (match) {
+        unitHasMatch = true;
+        if (q.length > 0) {
+          setTopicOpen(item, true);
+        }
+      }
+
+      item.querySelectorAll('.word-chip').forEach(chip => {
+        chip.style.display = (q === '' || chip.textContent.toLowerCase().includes(q)) ? '' : 'none';
+      });
+    });
+
+    unitEl.hidden = !unitHasMatch;
+    if (unitHasMatch) {
+      visibleUnits++;
+      syncUnitExpandButton(unitEl);
+    }
+  });
+
+  emptyBox.hidden = visibleUnits > 0;
+  updateSidebarProgress();
+}
+
+searchInput.addEventListener('input', () => runSearch(searchInput.value));
+clearBtn.addEventListener('click', () => {
+  searchInput.value = '';
+  searchInput.focus();
+  runSearch('');
+});
+
+document.addEventListener('keydown', e => {
+  const isTyping = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
+  if ((e.key === '/' && !isTyping) || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k')) {
+    e.preventDefault();
+    if (activeView !== 'term1') {
+      switchView('term1', null, true);
+    }
+    requestAnimationFrame(() => {
+      searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      searchInput.focus();
+    });
+  } else if (e.key === 'Escape' && document.activeElement === searchInput) {
+    if (searchInput.value) {
+      searchInput.value = '';
+      runSearch('');
+    }
+    searchInput.blur();
+  }
+});
+
+// Vocabulary tracking & Self-test mode
+function refreshVocabCounts() {
+  let totalAll = 0;
+  let learnedAll = 0;
+
+  TERM1_UNITS.forEach(u => {
+    let uTotal = 0;
+    let uLearned = 0;
+    u.vocabulary.groups.forEach(g => {
+      g.items.forEach(it => {
+        uTotal++;
+        totalAll++;
+        if (learnedSet.has(`u${u.u}:${it.word.toLowerCase()}`)) {
+          uLearned++;
+          learnedAll++;
+        }
+      });
+    });
+    const el = document.querySelector(`.unit-vcount[data-u="${u.u}"]`);
+    if (el) el.textContent = `${uLearned} / ${uTotal}`;
+  });
+
+  document.getElementById('vocab-total-label').textContent = `${learnedAll} / ${totalAll}`;
+  const pct = totalAll ? Math.round((learnedAll / totalAll) * 100) : 0;
+  document.getElementById('vocab-meter-fill').style.width = `${pct}%`;
+}
+
+function handleChipToggle(chip) {
+  const wrap = chip.closest('.vocab-wrap');
+  if (wrap && wrap.classList.contains('hide-meanings') && !chip.classList.contains('is-revealed')) {
+    chip.classList.add('is-revealed');
+    return;
+  }
+  const key = chip.dataset.wkey;
+  if (!key) return;
+  if (learnedSet.has(key)) {
+    learnedSet.delete(key);
+    chip.classList.remove('is-learned');
+    chip.setAttribute('aria-pressed', 'false');
+  } else {
+    learnedSet.add(key);
+    chip.classList.add('is-learned');
+    chip.setAttribute('aria-pressed', 'true');
+  }
+  saveLearned();
+  refreshVocabCounts();
+}
+
+document.addEventListener('click', e => {
+  const chip = e.target.closest('.word-chip');
+  if (chip) {
+    handleChipToggle(chip);
+    return;
+  }
+  const hideBtn = e.target.closest('[data-toggle-meanings]');
+  if (hideBtn) {
+    const u = hideBtn.dataset.toggleMeanings;
+    const wrap = document.querySelector(`.vocab-wrap[data-vocab-unit="${u}"]`);
+    if (!wrap) return;
+    const active = wrap.classList.toggle('hide-meanings');
+    hideBtn.setAttribute('aria-pressed', String(active));
+    hideBtn.textContent = active ? 'Show Catalan meanings' : 'Hide Catalan meanings';
+    wrap.querySelectorAll('.word-chip').forEach(c => c.classList.remove('is-revealed'));
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('word-chip')) {
+    e.preventDefault();
+    handleChipToggle(e.target);
+  }
+});
+
+refreshVocabCounts();
+
+/* ==========================================================================
+   9. PDF PRINT
+   ========================================================================== */
+document.getElementById('print-btn').addEventListener('click', () => window.print());
+</script>
+</body>
+</html>
